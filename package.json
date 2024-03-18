@@ -21,6 +21,7 @@
   "dependencies": {
     "date-fns": "^2.30.0",
     "heroku": "^8.7.1",
-    "node": "^21.2.0"
+    "node": "^21.2.0",
+    "react": "^18.2.0"
   }
 }
