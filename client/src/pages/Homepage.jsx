@@ -33,7 +33,7 @@ export default function Homepage({ theme }) {
             <div className="brand-image layer"/>
           </div>
           <div className="text-white layer d-flex flex-column-reverse brand-title">
-            <div className="">Fitness Tracker</div>
+            <div className="">Workout Placita</div>
           </div>
         </div>
         {/* The AuthCarousel has both the login and signup forms that can be switched by clicking thier respective tabs */}

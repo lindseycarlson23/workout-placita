@@ -13,7 +13,7 @@ function NavigationBar({ theme, setTheme }){
       <div className="container-fluid">
         <a className="navbar-brand d-flex gap-2" href="/">
           <img src="/assets/images/logo/32.png"></img>
-          Fitness Tracker
+          Workout Placita
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-content" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
