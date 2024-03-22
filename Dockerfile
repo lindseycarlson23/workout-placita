@@ -1,4 +1,4 @@
-FROM node:18:18
+FROM node:18.18
 
 COPY package.json ./
 
