@@ -35,8 +35,8 @@ const workoutSchema = new mongoose.Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
+    required: true,
+    default: Date.now(),
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
