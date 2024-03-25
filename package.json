@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "date-fns": "^2.30.0",
+    "dayjs": "^1.11.10",
     "heroku": "^8.11.0",
     "node": "^21.7.1",
     "nodejs": "^0.0.0",
