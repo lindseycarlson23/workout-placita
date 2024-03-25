@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_FRIEND } from "../utils/mutations";
+import dayjs from "dayjs/esm";
+
 
 const profilePictureStyle = {
   height: "2in",
@@ -70,7 +72,7 @@ function Aside() {
         <div className="card-body">
           <h5 className="card-title">{me?.name || "Unknown"}</h5>
           <h6 className="card-subtitle text-body-secondary mb-2">
-            Date Joined: {me?.createdAt ? new Date(me.createdAt).toLocaleString() : "Unknown"}
+            Date Joined: {dayjs(Number(me?.createdAt)).format("MMMM D, YYYY")}
           </h6>
           <hr />
           <AddFriendModalLaunch handleAddFriend={handleAddFriend}/>
