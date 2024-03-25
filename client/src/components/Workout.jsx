@@ -8,6 +8,7 @@ import { useState, useRef, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { REMOVE_WORKOUT } from "../utils/mutations";
 import { EDIT_WORKOUT } from "../utils/mutations";
+import showdown from "showdown";
 
 const profilePictureStyle = {
   height: "0.5in",
