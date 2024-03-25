@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
 // Comment Schema
 //make a comment js file and copy code over.
 const commentSchema = new mongoose.Schema({
