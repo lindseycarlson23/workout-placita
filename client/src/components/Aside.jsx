@@ -80,9 +80,9 @@ function Aside() {
             </h5> :
             <h5 className="card-title mt-2">No friends yet.</h5>
           }
-          <ul class="list-group list-group-flush overflow-hidden">
+          <ul className="list-group list-group-flush overflow-hidden">
           { me?.friends.map((friend) => (
-            <li class="list-group-item d-flex align-items-center gap-2" key={friend._id}>
+            <li className="list-group-item d-flex align-items-center gap-2" key={friend._id}>
               <img src="/assets/images/default-pfp.jpg" className="rounded-pill" style={{height: "0.3in"}} />
               <span className="text-nowrap">{friend.name}</span>
             </li>
