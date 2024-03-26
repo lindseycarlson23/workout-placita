@@ -71,7 +71,33 @@ export const ADD_COMMENT = gql`
     addComment(commentBody: $commentBody, workoutId: $workoutId) {
       commentBody
       createdAt
-      commentAuthor
+      name
+      _id
+    }
+  }
+`;
+
+export const REMOVE_COMMENT = gql`
+  mutation Mutation($commentId: ID!, $workoutId: ID!) {
+    removeComment(commentId: $commentId, workoutId: $workoutId) {
+      _id
+    }
+  }
+`;
+
+export const REPLY_COMMENT = gql`
+  mutation Mutation($replyBody: String!, $commentId: ID!) {
+    replyComment(replyBody: $replyBody, commentId: $commentId) {
+      replyBody
+      name
+      createdAt
+    }
+  }
+`;
+
+export const REMOVE_REPLY = gql`
+  mutation Mutation($replyId: ID!) {
+    removeReply(replyId: $replyId) {
       _id
     }
   }

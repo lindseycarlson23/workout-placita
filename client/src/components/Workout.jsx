@@ -15,7 +15,7 @@ const profilePictureStyle = {
   borderRadius: "0.25in"
 };
 
-function Workout({ id, type, title, link, notes, comments }) {
+function Workout({ id, type, title, link, notes, comments, refetch, loading }) {
   const [inEditMode, setEditMode] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -57,7 +57,7 @@ function Workout({ id, type, title, link, notes, comments }) {
         url: editLink.text,
       },
     }).then(() => {
-      window.location = "/workout/" + id;
+      window.location.reload();
     });
   }
 
@@ -161,7 +161,7 @@ function Workout({ id, type, title, link, notes, comments }) {
 
         <hr/>
 
-        <CommentsSection comments={comments} />
+        <CommentsSection comments={comments} workoutId={id} onCreateComment={() => refetch()} />
       </div>
     </div>
   )

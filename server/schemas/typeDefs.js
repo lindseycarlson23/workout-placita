@@ -24,6 +24,15 @@ type Comment {
   commentBody: String
   name: String
   createdAt: String
+  replies: [Reply]
+  canRemove: Boolean
+}
+type Reply {
+  _id: ID
+  replyBody: String
+  name: String
+  createdAt: String
+  canRemove: Boolean
 }
 
 
@@ -51,7 +60,9 @@ type Auth {
     removeUser: User
     removeWorkout(workout: String!): User
     addComment(commentBody: String!, workoutId: ID!): Comment
-    removeComment(commentId: ID!, workoutId: ID!): Workout
+    replyComment(replyBody: String!, commentId: ID!): Reply
+    removeComment(commentId: ID!, workoutId: ID!): Comment
+    removeReply(replyId: ID!): Reply
     addFriend(friendId: ID!): User
     removeFriend(friendId: ID!): User
     editWorkout(workoutId: ID!, workoutTitle: String, workoutText: String, workoutType: String, url: String): Workout

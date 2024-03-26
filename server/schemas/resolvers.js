@@ -1,4 +1,4 @@
-const { User, Workout, Comment } = require("../models");
+const { User, Workout, Comment, Reply } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -9,8 +9,24 @@ const resolvers = {
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId }).populate("workouts").populate("friends");
     },
-    workout: async (parent, { workoutId }) => {
-      return Workout.findOne({ _id: workoutId }).populate("comments");
+    workout: async (parent, { workoutId }, context) => {
+      const workout = await Workout.findOne({ _id: workoutId }).populate({
+        path: "comments",
+        populate: {
+          path: "replies",
+          model: "Reply"
+        }
+      });
+
+      const currentUser = context.user?.name;
+      workout.comments.forEach(comment => {
+        comment.canRemove = comment.name === currentUser;
+        comment.replies.forEach(reply => {
+          reply.canRemove = reply.name === currentUser;
+        });
+      });
+
+      return workout;
     },
     workouts: async (parent, { userId, type }) => {
       const params = userId ? { userId } : {};
@@ -153,17 +169,57 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
+    //This allows us to reply to a comment
+    replyComment: async (parent, { replyBody, commentId }, context) => {
+      if (context.user) {
+        const reply = await Reply.create({
+          replyBody,
+          name: context.user.name,
+        });
+        const comment = await Comment.findOneAndUpdate(
+          { _id: commentId },
+          { $addToSet: { replies: reply._id } },
+          { new: true }
+        );
+        return reply;
+      }
+      throw AuthenticationError;
+    },
     //This allows us to remove a comment
     removeComment: async (parent, { commentId, workoutId }, context) => {
-      const comment = await Comment.deleteOne({ _id: commentId });
-      const workout = await Workout.findOneAndUpdate(
-        { _id: workoutId },
-        { $pull: { comments: commentId } },
-        { new: true }
-      );
-      return workout;
+      const comment = await Comment.findOne({ _id: commentId });
+
+      if (context.user.name === comment.name) {
+        await Comment.findOneAndDelete({ _id: commentId });
+        await Reply.deleteMany({ commentId: commentId });
+        await Workout.findOneAndUpdate(
+          { _id: workoutId },
+          { $pull: { comments: commentId } }
+        );
+        return comment;
+      }
+
+      throw AuthenticationError;
     },
-  },
+
+    //This allows us to remove a reply
+    removeReply: async (parent, { replyId }, context) => {
+      const reply = await Reply.findOne({ _id: replyId });
+
+      if (context.user.name === reply.name) {
+        const comment = await Comment.findOne({ 'replies': { $in: [replyId] } });
+        await Comment.findOneAndUpdate(
+          { _id: comment._id },
+          { $pull: { replies: replyId } }
+        );
+        await Reply.findOneAndDelete({ _id: replyId });
+        return reply;
+      }
+
+      throw AuthenticationError;
+    }
+  }
 };
+
 
 module.exports = resolvers;

@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
-// Comment Schema
-//make a comment js file and copy code over.
-const commentSchema = new mongoose.Schema({
-  commentId: {
+
+const replySchema = new mongoose.Schema({
+  replyId: {
     type: mongoose.Schema.Types.ObjectId,
     default: () => new mongoose.Types.ObjectId(),
   },
-  commentBody: {
+  replyBody: {
     type: String,
     required: true,
     maxlength: 280,
@@ -20,13 +19,7 @@ const commentSchema = new mongoose.Schema({
     required: true,
     default: Date.now(),
   },
-  replies: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Reply",
-    },
-  ]
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
-module.exports = Comment;
+const Reply = mongoose.model("Reply", replySchema);
+module.exports = Reply;
