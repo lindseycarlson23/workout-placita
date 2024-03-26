@@ -18,7 +18,7 @@ function CommentsSection({ comments, onCreateComment, workoutId }) {
       <div className="d-flex flex-column gap-3">
         <Comment onCreateComment={onCreateComment} workoutId={workoutId} />
         {comments.map((comment, index) => {
-          return <Comment key={index} comment={comment} />
+          return <Comment key={index} comment={comment} onCreateComment={onCreateComment} workoutId={workoutId}/>
         })}
       </div>
     </>

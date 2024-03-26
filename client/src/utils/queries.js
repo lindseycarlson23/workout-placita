@@ -12,6 +12,14 @@ query Workout($workoutId: ID!) {
         createdAt
         name
         commentBody
+        canRemove
+        replies {
+          replyBody
+          name
+          createdAt
+          canRemove
+          _id
+        }
         _id
       }
       commentCount

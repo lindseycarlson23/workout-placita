@@ -77,6 +77,32 @@ export const ADD_COMMENT = gql`
   }
 `;
 
+export const REMOVE_COMMENT = gql`
+  mutation Mutation($commentId: ID!, $workoutId: ID!) {
+    removeComment(commentId: $commentId, workoutId: $workoutId) {
+      _id
+    }
+  }
+`;
+
+export const REPLY_COMMENT = gql`
+  mutation Mutation($replyBody: String!, $commentId: ID!) {
+    replyComment(replyBody: $replyBody, commentId: $commentId) {
+      replyBody
+      name
+      createdAt
+    }
+  }
+`;
+
+export const REMOVE_REPLY = gql`
+  mutation Mutation($replyId: ID!) {
+    removeReply(replyId: $replyId) {
+      _id
+    }
+  }
+`;
+
 // Add a friend by their email
 export const ADD_FRIEND = gql`
   mutation Mutation($friendId: ID!) {
