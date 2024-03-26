@@ -37,6 +37,10 @@ function Root() {
           element: <UserPage />
         },
         {
+          path: '/userpage/:id',
+          element: <UserPage />
+        },
+        {
           path: '/workout/:id',
           element: <WorkoutPage />
         }

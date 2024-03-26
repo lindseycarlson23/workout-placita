@@ -1,12 +1,14 @@
-# Fitness Tracker
-<br>Deployed Page Link:https://fitoness-tracker-779b260a5616.herokuapp.com/<br> 
-<br>Fitness Tracker Repo: https://github.com/Bfinch3/fitness-tracker<br>
+# Workout Placita
+<br>Deployed Page Link: https://workoutplacita-e86426bee2f8.herokuapp.com/<br> 
+<br>Workout Placita Repo: https://github.com/lindseycarlson23/workout-placita<br>
 
 Created by:
-<br>Lindsey Carlso:https://github.com/lindseycarlson23 <br> 
+<br>Lindsey Carlson:https://github.com/lindseycarlson23 <br> 
+<br>Fernando Valle: https://github.com/elmfer <br>
+
+Original team also included:
 <br>Billy Finch:https://github.com/Bfinch3 <br>
 <br>Chris Valada: https://github.com/clvalada<br>
-<br>Fernando Valle: https://github.com/elmfer <br>
 <br>Alberto Aleman Jr.:https://github.com/aalemanyz67 <br>
 
 
@@ -14,11 +16,17 @@ Created by:
 ![Alt text](<assets/images/Fitness_Tracker_Logo .png>)
 
 ## Objective
-As a final project our team wanted to create a full stack MERN application to demonstrate the skills we have learned these past 3 months. We present our Fitness Tracker Application.
+For the University of Texas at Austin Coding Bootcamp final project, our team created a full stack MERN application to demonstrate the skills we have learned during the 12 weeks of the bootcamp. It was originally named Fitness Tracker. Since completing the bootcamp, the app has been renamed to Workout Placita with additional features ongoing.
 
 ## Description
 
-Looking for a way to track your favorite workouts! Checkout our Fitness Tracker Application. Our fitness app allows the user to login and create their own personal workout profile. Within their profile, the user can select the type of workout they are doing or just did and write a description about it. They can also make comments about the workout they just finished and if they recommend it. The user can also be part of a workout community by adding other users who are currently using the fitness app. 
+The idea for this applicationw as born out of practicality. I wanted a way to record my personal thoughts about a specific video workout so that I could easily find it in the future and either share or redo the workout (or both!). The platform I was using only had a simple bookmarking option, but no way to indicate why I bookmarked the app. With generic workout names (20 min Yoga Flow, 10 min Empathy Meditation, 30 90s Ride), it required scrolling and guessing and luck to find previously enjoyed workouts. I also wasn't looking for another way to track my activity - more my experience.
+
+Meet Workout Placita.
+
+Placita is Latin for opinions. Workout Placita allows you to record your person opinions or notes about your workout, and then access and share that information in the future. You simply create your own personal workout profile. Once within your profile, you are able to make a record of your workout, including the name, URL link, and (most importantly!) your thoughts. 
+
+Placita is Spanish for little plaza. Workout Placita is also a gathering place for you to connect with your friends and view their workout opinions as well. You can read their workout thoughts and make your own comments, creating a conversation about that specific workout.
 
 ## Table of Contents
 
@@ -31,28 +39,24 @@ Looking for a way to track your favorite workouts! Checkout our Fitness Tracker 
 - [Screenshots](#screenshots)
 
 ## Installation
-Upon cloning our repo to your VS Code or code editor, please use the following installation guideline to make our Fitness Tracker function properly.
-<br>Open up the integrated terminal at the root of our application follow the following commands.<br>
-<br>npm install<br>
-<br>npm run build<br>
-<br>npm run seed<br>
-<br>npm run develop<br>
 
-![Alt text](assets/images/installation.png)
+No intallation required! Simply go to our domain page: www.workoutplacita.com.
 
 ## Usage
 Once the homepage to our Fitness Tracker opens within the browser, you will need sign up to create your profile. Once there, you can create a new workout log. Upon clicking on the "Log New Workout" button a small window will appear in which you can create your new workout log. 
 
 
-## Contributors and Resources
-<br>Lindsey Carlso:https://github.com/lindseycarlson23 | Front End/Back End <br> 
-<br>Billy Finch:https://github.com/Bfinch3  | Back End/Front End<br> 
-<br>Chris Valada: https://github.com/clvalada | Front End<br>
+## Current Contributors
+<br>Lindsey Carlson: https://github.com/lindseycarlson23 | Front End/Back End <br>
 <br>Fernando Valle: https://github.com/elmfer | Front End<br>
+
+## Previous Contributors
+<br>Billy Finch: https://github.com/Bfinch3  | Back End/Front End<br> 
+<br>Chris Valada: https://github.com/clvalada | Front End<br>
 <br>Alberto Aleman Jr.:https://github.com/aalemanyz67 | Back End/Front End<br>
 
 ### Resources
-The Fitness Tracker Application was built using the following packages and MERN Stack
+Workout Placita was built using the following packages and MERN Stack
 <br>![Alt text](assets/images/Mern.png) <br>
 
 Packages:
@@ -70,11 +74,7 @@ Packages:
 <br>shadow<br>
 <br>jwt-decode<br>
 <br>@fortawesome/fontawesome-free<br>
-vide<br>
-
-## Tests
-
-
+<br>vide<br>
 
 ## Questions
 
@@ -83,7 +83,7 @@ For any questions, please contact me via:
 <br>Billy Finch:https://github.com/Bfinch3 <br>
 <br>Chris Valada: https://github.com/clvalada<br>
 <br>Fernando Valle: https://github.com/elmfer <br>
-<br>Alberto Aleman Jr.:https://github.com/aalemanyz67 <br>
+<br>Alberto Aleman Jr.: https://github.com/aalemanyz67 <br>
 
 
 ## License

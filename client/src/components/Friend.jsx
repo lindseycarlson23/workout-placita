@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 function Friend({ friends }) {
   // Check if friends is defined before mapping
   if (!friends) {
-    return
+    return;
   }
 
   return (
@@ -14,9 +14,7 @@ function Friend({ friends }) {
           Friends
           <ul>
             {friends.map((friend) => (
-              <li key={friend._id}>
-                {friend.name}
-              </li>
+              <li key={friend._id}>{friend.name}</li>
             ))}
           </ul>
         </Card.Header>

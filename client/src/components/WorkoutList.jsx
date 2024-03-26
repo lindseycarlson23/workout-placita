@@ -21,7 +21,7 @@ function WorkoutList() {
     <div className="card flex-grow-1 box-shadow col-7 md-order-2 lg-w-100">
       <div className="card-header d-flex align-items-center">
         <h4 className="card-title d-flex flex-wrap gap-2 mb-0 mt-1">
-          <span>My Workouts</span>
+          <span>Workouts</span>
           <DropdownFilter setFilterType={setFilterType} />
         </h4>
         <div className="flex-grow-1" />
