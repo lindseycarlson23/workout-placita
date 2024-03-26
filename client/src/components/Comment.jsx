@@ -101,7 +101,6 @@ function Comment({ comment, onCreateComment, workoutId }) {
 
   function createReply(event) {
     event.preventDefault();
-    setReplying(false);
     createReplyMutation({
       variables: {
         commentId: comment._id,
@@ -112,7 +111,9 @@ function Comment({ comment, onCreateComment, workoutId }) {
       onCreateComment();
     }).catch((error) => {
       console.error(error)
-    })
+    }).finally(() => {
+      setReplying(false);
+    });
   }
 
   function removeComment() {
