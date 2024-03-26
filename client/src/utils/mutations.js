@@ -71,7 +71,7 @@ export const ADD_COMMENT = gql`
     addComment(commentBody: $commentBody, workoutId: $workoutId) {
       commentBody
       createdAt
-      commentAuthor
+      name
       _id
     }
   }
