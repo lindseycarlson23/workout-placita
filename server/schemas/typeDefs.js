@@ -64,6 +64,7 @@ type Auth {
     removeComment(commentId: ID!, workoutId: ID!): Comment
     removeReply(replyId: ID!): Reply
     addFriend(friendId: ID!): User
+    removeFriend(friendId: ID!): User
     editWorkout(workoutId: ID!, workoutTitle: String, workoutText: String, workoutType: String, url: String): Workout
   }
 `;

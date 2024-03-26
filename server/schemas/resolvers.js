@@ -102,6 +102,14 @@ const resolvers = {
       return friendUser;
     },
 
+    removeFriend: async (_, { friendId }, { user }) => {
+      if (!user) throw AuthenticationError;
+
+      // const currentUser = await findUserById(user._id);
+      const friendUser = await User.findOneAndUpdate({ _id: user._id }, { $pull: { friends: friendId } });
+
+      return friendUser;
+    },
 
     //This allows us to remove a user
     removeUser: async (parent, args, context) => {

@@ -5,6 +5,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_FRIEND } from "../utils/mutations";
 import dayjs from "dayjs/esm";
+import RemoveFriendModalLaunch from "./RemoveFriendModalLaunch";
 
 
 const profilePictureStyle = {
@@ -18,10 +19,7 @@ const profilePictureStyle = {
 };
 
 function Aside() {
-  const { loading, data, error } = useQuery(QUERY_ME);
-  console.log("loading:", loading);
-  console.log("data:", data);
-  console.log("error:", error);
+  const { loading, data, error, refetch } = useQuery(QUERY_ME);
 
   const [addFriend] = useMutation(ADD_FRIEND);
   const me = data?.me;
@@ -51,6 +49,10 @@ function Aside() {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const onRemoveFriend = async (friendId) => {
+    refetch();
   };
 
   if (loading) {
@@ -87,6 +89,8 @@ function Aside() {
             <li className="list-group-item d-flex align-items-center gap-2" key={friend._id}>
               <img src="/assets/images/default-pfp.jpg" className="rounded-pill" style={{height: "0.3in"}} />
               <span className="text-nowrap">{friend.name}</span>
+              <span className="flex-grow-1"></span>
+              <RemoveFriendModalLaunch friend={friend} onRemoveFriend={onRemoveFriend}/>
             </li>
             ))
           }
