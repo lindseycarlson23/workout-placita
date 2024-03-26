@@ -91,13 +91,16 @@ export const ADD_FRIEND = gql`
   }
 `;
 
-// Remove a friend by their name
+// Remove a friend by their id
 export const REMOVE_FRIEND = gql`
-  mutation RemoveFriend($name: String!) {
-    removeFriend(name: $name) {
-      _id
+  mutation Mutation($friendId: ID!) {
+    removeFriend(friendId: $friendId) {
       name
-      friends
+      _id
+      email
+      friends {
+        _id
+      }
     }
   }
 `;
