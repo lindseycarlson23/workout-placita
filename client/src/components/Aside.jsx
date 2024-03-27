@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
 import { ADD_FRIEND } from "../utils/mutations";
+import { Link } from "react-router-dom";
 import dayjs from "dayjs/esm";
 import RemoveFriendModalLaunch from "./RemoveFriendModalLaunch";
 
@@ -88,7 +89,7 @@ function Aside() {
           { me?.friends.map((friend) => (
             <li className="list-group-item d-flex align-items-center gap-2" key={friend._id}>
               <img src="/assets/images/default-pfp.jpg" className="rounded-pill" style={{height: "0.3in"}} />
-              <span className="text-nowrap">{friend.name}</span>
+              <Link to={`/userpage/${friend._id}`} className="text-decoration-none text-nowrap">{friend.name}</Link>
               <span className="flex-grow-1"></span>
               <RemoveFriendModalLaunch friend={friend} onRemoveFriend={onRemoveFriend}/>
             </li>

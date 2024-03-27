@@ -17,6 +17,7 @@ import Homepage from './pages/Homepage';
 import UserPage from './pages/UserPage';
 import ErrorPage from './pages/ErrorPage';
 import WorkoutPage from './pages/WorkoutPage';
+import FriendPage from './pages/FriendPage';
 
 function Root() {
 
@@ -38,7 +39,7 @@ function Root() {
         },
         {
           path: '/userpage/:id',
-          element: <UserPage />
+          element: <FriendPage />
         },
         {
           path: '/workout/:id',
