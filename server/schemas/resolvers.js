@@ -129,7 +129,7 @@ const resolvers = {
         await Comment.deleteMany({ _id: { $in: workout.comments } });
         await Reply.deleteMany({ commentId: { $in: workout.comments } });
 
-        Workout.findByIdAndDelete(workoutId);
+        await Workout.findOneAndDelete({ _id: workoutId });
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
