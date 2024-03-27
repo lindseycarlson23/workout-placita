@@ -121,10 +121,16 @@ const resolvers = {
     //this allows us to remove a workout
     removeWorkout: async (parent, { workoutId }, context) => {
       if (context.user) {
-        const workout = await Workout.findOneAndDelete({
-          _id: workoutId,
-          userId: context.user._id,
-        });
+        const workout = await Workout.findById(workoutId);
+
+        if (workout.userId.toString() !== context.user._id)
+          throw AuthenticationError;
+
+        await Comment.deleteMany({ _id: { $in: workout.comments } });
+        await Reply.deleteMany({ commentId: { $in: workout.comments } });
+
+        Workout.findByIdAndDelete(workoutId);
+
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $pull: { workouts: workout._id } },
