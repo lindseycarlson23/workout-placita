@@ -17,7 +17,7 @@ const SingleWorkoutPage = () => {
   const { loading, data, refetch } = useQuery(QUERY_WORKOUT, {
     variables: { workoutId: id },
   });
-console.log(data);
+  console.log(data);
   const workout = data?.workout || {};
 
   if (loading) {
@@ -26,7 +26,7 @@ console.log(data);
 
   const mainDivStyle = {
     margin: "0 auto",
-    maxWidth: "1200px"
+    maxWidth: "1200px",
   };
 
   console.log(workout);
@@ -34,16 +34,26 @@ console.log(data);
   // NOTE: The backend should at one point return the workout object containg a link field with the following format:
   const link = {
     text: workout.url, // The text is shown in place of the url
-    url: workout.url
-  }
+    url: workout.url,
+  };
 
   return (
-    <div className="d-flex gap-2 p-2 align-items-start flex-wrap" style={ mainDivStyle }>
-      <Workout id={id} title={workout.workoutTitle} type={workout.workoutType} notes={workout.workoutText} link={link} comments={workout.comments} refetch={refetch} loading={loading} />
+    <div
+      className="d-flex gap-2 p-2 align-items-start flex-wrap"
+      style={mainDivStyle}
+    >
+      <Workout
+        id={id}
+        title={workout.workoutTitle}
+        type={workout.workoutType}
+        notes={workout.workoutText}
+        link={link}
+        comments={workout.comments}
+        refetch={refetch}
+        loading={loading}
+      />
     </div>
-
-
-  )
-}
+  );
+};
 
 export default SingleWorkoutPage;

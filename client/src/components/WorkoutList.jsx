@@ -3,15 +3,15 @@ import WorkoutSummary from "./WorkoutSummary";
 import ModalLaunch from "./ModalLaunch";
 import { QUERY_WORKOUTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-
 import Auth from "../utils/auth";
 import { useEffect, useState } from "react";
 
-function WorkoutList() {
+function WorkoutList({userId}) {
 
   const [ filterType, setFilterType ] = useState(null);
+  const finalUserId = userId ? userId : Auth.getProfile().data._id;
+  const { loading, data, refetch } = useQuery(QUERY_WORKOUTS, { variables: { userId: finalUserId } });
 
-  const { loading, data, refetch } = useQuery(QUERY_WORKOUTS, { variables: { userId: Auth.getProfile().data._id } });
 
   useEffect(() => {
     refetch({type: filterType})
