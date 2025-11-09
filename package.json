@@ -13,14 +13,21 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install --production=false && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "vite": "^5.0.7"
+    "vite": "^5.0.7",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4"
   },
   "dependencies": {
     "date-fns": "^2.30.0",
